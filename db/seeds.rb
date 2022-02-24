@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
+Recipe.destroy_all
+UserRecipe.destroy_all
+
 user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
 user_2 = User.create(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy@gmail.com')
 user_3 = User.create(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith@gmail.com')
@@ -17,3 +20,24 @@ user_8 = User.create(first_name: 'Han', last_name: 'Solo', email: 'milleniumfalc
 user_9 = User.create(first_name: 'Chew', last_name: 'Bacca', email: 'wookie@gmail.com')
 user_10 = User.create(first_name: 'Bob', last_name: 'Weir', email: 'TheOtherOne@gmail.com')
 user_11 = User.create(first_name: 'Jimi', last_name: 'Hendrix', email: 'purplehaze@gmail.com')
+
+recipe_1 = Recipe.create(recipe_id: 13)
+recipe_2 = Recipe.create(recipe_id: 21)
+recipe_3 = Recipe.create(recipe_id: 33)
+recipe_4 = Recipe.create(recipe_id: 45)
+recipe_5 = Recipe.create(recipe_id: 512)
+recipe_6 = Recipe.create(recipe_id: 632)
+recipe_7 = Recipe.create(recipe_id: 7231)
+recipe_8 = Recipe.create(recipe_id: 8123)
+recipe_9 = Recipe.create(recipe_id: 932)
+recipe_10 = Recipe.create(recipe_id: 10123)
+recipe_11 = Recipe.create(recipe_id: 1112)
+recipe_12 = Recipe.create(recipe_id: 1233)
+recipe_13 = Recipe.create(recipe_id: 1355)
+
+user_recipe_1 = UserRecipe.create(user_id: user_1.id, recipe_id: recipe_1.id)
+user_recipe_2 = UserRecipe.create(user_id: user_1.id, recipe_id: recipe_2.id)
+user_recipe_3 = UserRecipe.create(user_id: user_1.id, recipe_id: recipe_5.id)
+user_recipe_4 = UserRecipe.create(user_id: user_2.id, recipe_id: recipe_2.id)
+user_recipe_5 = UserRecipe.create(user_id: user_2.id, recipe_id: recipe_1.id)
+user_recipe_6 = UserRecipe.create(user_id: user_3.id, recipe_id: recipe_1.id)
