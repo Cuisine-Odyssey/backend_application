@@ -9,4 +9,12 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP },
             :presence => {message: "can't be blank"},
             :uniqueness => true
+
+  def total_likes
+    recipes.where(user_recipes: {vote: 1}).pluck(:recipe_api_id)
+  end
+
+  def total_dislikes
+    recipes.where(user_recipes: {vote: 2}).pluck(:recipe_api_id)
+  end
 end
