@@ -7,11 +7,3 @@ Rails.application.routes.draw do
   end
 
 end
-
-user_id :
-likes: [array of recipe ids]
-dislikes: [array of recipe ids]
-
-recipe_id :
-likes: (integer)
-dislikes: (integer)
