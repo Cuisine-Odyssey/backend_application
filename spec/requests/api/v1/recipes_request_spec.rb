@@ -21,7 +21,7 @@ RSpec.describe 'Users API' do
 
     expect(response).to be_successful
     expect(response.status).to eq(200)
-    
+
     data = recipe[:data][:attributes]
     expect(response).to be_successful
     expect(response.status).to eq(200)
@@ -34,5 +34,59 @@ RSpec.describe 'Users API' do
 
     expect(data).to have_key(:sum_dislikes)
     expect(data[:sum_dislikes]).to be_a Integer
+  end
+
+  it 'creates a recipe when a recipe is not found in the db' do
+    headers = { 'CONTENT_TYPE' => 'application/json' }
+      params = {
+                "recipe_api_id": 14,
+               }
+
+    post "/api/v1/recipes/create", headers: headers, params: JSON.generate(recipe: params)
+
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+    recipe_json = JSON.parse(response.body, symbolize_names: true)
+    expected = recipe_json[:data][:attributes]
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+    expect(expected).to have_key(:recipe_api_id)
+    expect(expected[:recipe_api_id]).to be_a Integer
+    expect(expected).to have_key(:sum_likes)
+    expect(expected[:sum_likes]).to be_a Integer
+    expect(expected).to have_key(:sum_dislikes)
+    expect(expected[:sum_dislikes]).to be_a Integer
+  end
+
+  it 'finds a user that already exists' do
+    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
+    user_2 = User.create!(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy@gmail.com')
+    user_3 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith@gmail.com')
+    recipe_1 = Recipe.create!(recipe_api_id: 13)
+    user_recipe_1 = UserRecipe.create!(user_id: user_1.id, recipe_id: recipe_1.id, vote: 2)
+    user_recipe_5 = UserRecipe.create!(user_id: user_2.id, recipe_id: recipe_1.id, vote: 1)
+    user_recipe_6 = UserRecipe.create!(user_id: user_3.id, recipe_id: recipe_1.id, vote: 1)
+    headers = { 'CONTENT_TYPE' => 'application/json' }
+    params = {
+                "recipe_api_id": 13,
+             }
+
+    post "/api/v1/recipes/create", headers: headers, params: JSON.generate(recipe: params)
+
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+    recipe_json = JSON.parse(response.body, symbolize_names: true)
+    expected = recipe_json[:data][:attributes]
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+    expect(expected).to have_key(:recipe_api_id)
+    expect(expected[:recipe_api_id]).to be_a Integer
+    expect(expected[:recipe_api_id]).to eq(recipe_1.recipe_api_id)
+    expect(expected).to have_key(:sum_likes)
+    expect(expected[:sum_likes]).to be_a Integer
+    expect(expected[:sum_likes]).to eq(2)
+    expect(expected).to have_key(:sum_dislikes)
+    expect(expected[:sum_dislikes]).to be_a Integer
+    expect(expected[:sum_dislikes]).to eq(1)
   end
 end

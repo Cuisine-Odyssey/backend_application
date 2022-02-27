@@ -7,4 +7,20 @@ class Api::V1::RecipesController < ApplicationController
       render status: 404
     end
   end
+
+  def create
+    new_recipe = Recipe.find_or_create_by(recipe_params)
+    if new_recipe.present?
+      render json: RecipeSerializer.new(new_recipe)
+    else
+      render status: 404
+    end
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:recipe_api_id)
+  end
+
 end
