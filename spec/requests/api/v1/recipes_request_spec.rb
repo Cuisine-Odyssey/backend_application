@@ -21,5 +21,18 @@ RSpec.describe 'Users API' do
 
     expect(response).to be_successful
     expect(response.status).to eq(200)
+    
+    data = recipe[:data][:attributes]
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+
+    expect(data).to have_key(:recipe_api_id)
+    expect(data[:recipe_api_id]).to be_a Integer
+
+    expect(data).to have_key(:sum_likes)
+    expect(data[:sum_likes]).to be_a Integer
+
+    expect(data).to have_key(:sum_dislikes)
+    expect(data[:sum_dislikes]).to be_a Integer
   end
 end
