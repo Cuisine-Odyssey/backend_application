@@ -9,6 +9,24 @@ RSpec.describe 'Users API' do
 
     expect(response).to be_successful
     expect(response.status).to eq(200)
+    expected = user[:data][:attributes]
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+
+    expect(expected).to have_key(:email)
+    expect(expected[:email]).to be_a String
+
+    expect(expected).to have_key(:first_name)
+    expect(expected[:first_name]).to be_a String
+
+    expect(expected).to have_key(:last_name)
+    expect(expected[:last_name]).to be_a String
+
+    expect(expected).to have_key(:likes)
+    expect(expected[:likes]).to be_a Array
+
+    expect(expected).to have_key(:dislikes)
+    expect(expected[:dislikes]).to be_a Array
   end
 
   it 'creates or finds a user' do
@@ -25,6 +43,26 @@ RSpec.describe 'Users API' do
 
     expect(response).to be_successful
     expect(response.status).to eq(200)
+    user_json = JSON.parse(response.body, symbolize_names: true)
+
+    expected = user_json[:data][:attributes]
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+
+    expect(expected).to have_key(:email)
+    expect(expected[:email]).to be_a String
+
+    expect(expected).to have_key(:first_name)
+    expect(expected[:first_name]).to be_a String
+
+    expect(expected).to have_key(:last_name)
+    expect(expected[:last_name]).to be_a String
+
+    expect(expected).to have_key(:likes)
+    expect(expected[:likes]).to be_a Array
+
+    expect(expected).to have_key(:dislikes)
+    expect(expected[:dislikes]).to be_a Array
   end
 
   it 'finds a user that already exists' do

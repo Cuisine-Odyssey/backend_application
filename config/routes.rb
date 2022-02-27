@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :create]
       resources :recipes, only: [:show]
       post '/users/create', to: 'users#create'
+      post 'recipes/create', to: 'recipes#create'
     end
   end
 
