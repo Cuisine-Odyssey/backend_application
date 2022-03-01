@@ -22,11 +22,17 @@ RSpec.describe 'Users API' do
     expect(expected).to have_key(:last_name)
     expect(expected[:last_name]).to be_a String
 
-    expect(expected).to have_key(:likes)
-    expect(expected[:likes]).to be_a Array
+    expect(expected).to have_key(:recipe_likes)
+    expect(expected[:recipe_likes]).to be_a Array
 
-    expect(expected).to have_key(:dislikes)
-    expect(expected[:dislikes]).to be_a Array
+    expect(expected).to have_key(:recipe_dislikes)
+    expect(expected[:recipe_dislikes]).to be_a Array
+
+    expect(expected).to have_key(:cocktail_likes)
+    expect(expected[:cocktail_likes]).to be_a Array
+
+    expect(expected).to have_key(:cocktail_dislikes)
+    expect(expected[:cocktail_dislikes]).to be_a Array
   end
 
   it 'creates or finds a user' do
@@ -58,20 +64,26 @@ RSpec.describe 'Users API' do
     expect(expected).to have_key(:last_name)
     expect(expected[:last_name]).to be_a String
 
-    expect(expected).to have_key(:likes)
-    expect(expected[:likes]).to be_a Array
+    expect(expected).to have_key(:recipe_likes)
+    expect(expected[:recipe_likes]).to be_a Array
 
-    expect(expected).to have_key(:dislikes)
-    expect(expected[:dislikes]).to be_a Array
+    expect(expected).to have_key(:recipe_dislikes)
+    expect(expected[:recipe_dislikes]).to be_a Array
+
+    expect(expected).to have_key(:cocktail_likes)
+    expect(expected[:cocktail_likes]).to be_a Array
+
+    expect(expected).to have_key(:cocktail_dislikes)
+    expect(expected[:cocktail_dislikes]).to be_a Array
   end
 
   it 'finds a user that already exists' do
-    user = User.create!(first_name: 'Chew', last_name: 'Baca', email: 'wookie@gmail.com')
+    user = User.create!(first_name: 'Chew', last_name: 'Baca', email: 'wookie_1@gmail.com')
     headers = { 'CONTENT_TYPE' => 'application/json' }
     params = {
               "first_name": "Chew",
               "last_name": "Baca",
-              "email": "wookie@gmail.com"
+              "email": "wookie_1@gmail.com"
              }
 
 
