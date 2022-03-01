@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       post '/users/create', to: 'users#create'
       post '/recipes/like', to: 'recipes#create'
       post '/recipes/dislike', to: 'recipes#create'
-      post '/cocktails/create', to: 'cocktails#create'
+      post '/cocktails/like', to: 'cocktails#create'
+      post '/cocktails/dislike', to: 'cocktails#create'
     end
   end
 end
