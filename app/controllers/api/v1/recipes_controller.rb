@@ -9,6 +9,7 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
+    
     new_recipe = Recipe.find_or_create_by(recipe_params)
     if new_recipe.present?
       render json: RecipeSerializer.new(new_recipe)

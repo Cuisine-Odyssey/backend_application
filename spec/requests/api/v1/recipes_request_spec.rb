@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'Users API' do
+RSpec.describe 'Recipe API' do
   it 'returns one recipe' do
     user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
     user_2 = User.create(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy@gmail.com')
