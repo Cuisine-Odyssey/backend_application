@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe 'cocktails api' do
 
   it 'creates a cocktail when a cocktail is not found in the db' do
-    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
+    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_5@gmail.com')
 
     headers = { 'CONTENT_TYPE' => 'application/json' }
       params = {
         "cocktail_api_id"=>"52885",
-         "email"=>"chuck@gmail.com",
+         "email"=>"chuck_5@gmail.com",
          "vote"=>"like",
          "controller"=>"api/v1/cocktails",
          "action"=>"create",
@@ -34,9 +34,9 @@ RSpec.describe 'cocktails api' do
   end
 
   it 'finds a cocktail that already exists' do
-    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
-    user_2 = User.create!(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy@gmail.com')
-    user_3 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith@gmail.com')
+    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_6@gmail.com')
+    user_2 = User.create!(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy_6@gmail.com')
+    user_3 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith_6@gmail.com')
     cocktail_1 = Cocktail.create!(cocktail_api_id: 65)
     user_cocktail_1 = UserCocktail.create!(user_id: user_1.id, cocktail_id: cocktail_1.id, vote: 2)
     user_cocktail_5 = UserCocktail.create!(user_id: user_2.id, cocktail_id: cocktail_1.id, vote: 1)
@@ -44,7 +44,7 @@ RSpec.describe 'cocktails api' do
     headers = { 'CONTENT_TYPE' => 'application/json' }
     params = {
       "cocktail_api_id"=>"65",
-       "email"=>"chuck@gmail.com",
+       "email"=>"chuck_6@gmail.com",
        "vote"=>"like",
        "controller"=>"api/v1/cocktails",
        "action"=>"create",
@@ -73,9 +73,9 @@ RSpec.describe 'cocktails api' do
   end
 
   it 'adds to like/dislike hash' do
-    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
-    user_2 = User.create!(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy@gmail.com')
-    user_3 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith@gmail.com')
+    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_7@gmail.com')
+    user_2 = User.create!(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy_7@gmail.com')
+    user_3 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith_7@gmail.com')
     cocktail_1 = Cocktail.create!(cocktail_api_id: 65)
     user_cocktail_1 = UserCocktail.create!(user_id: user_1.id, cocktail_id: cocktail_1.id, vote: 2)
     user_cocktail_5 = UserCocktail.create!(user_id: user_2.id, cocktail_id: cocktail_1.id, vote: 2)
@@ -83,7 +83,7 @@ RSpec.describe 'cocktails api' do
     headers = { 'CONTENT_TYPE' => 'application/json' }
     params = {
       "cocktail_api_id"=>"65",
-       "email"=>"chuck@gmail.com",
+       "email"=>"chuck_7@gmail.com",
        "vote"=>"dislike",
        "controller"=>"api/v1/cocktails",
        "action"=>"create",

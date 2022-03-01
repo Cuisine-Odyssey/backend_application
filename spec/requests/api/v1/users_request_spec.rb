@@ -78,12 +78,12 @@ RSpec.describe 'Users API' do
   end
 
   it 'finds a user that already exists' do
-    user = User.create!(first_name: 'Chew', last_name: 'Baca', email: 'wookie@gmail.com')
+    user = User.create!(first_name: 'Chew', last_name: 'Baca', email: 'wookie_1@gmail.com')
     headers = { 'CONTENT_TYPE' => 'application/json' }
     params = {
               "first_name": "Chew",
               "last_name": "Baca",
-              "email": "wookie@gmail.com"
+              "email": "wookie_1@gmail.com"
              }
 
 

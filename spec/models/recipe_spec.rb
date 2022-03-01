@@ -6,11 +6,11 @@ RSpec.describe Recipe, type: :model do
   end
 
   it '#recipe_total_likes' do
-    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
-    user_2 = User.create(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy@gmail.com')
-    user_3 = User.create(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith@gmail.com')
-    user_4 = User.create(first_name: 'Luke', last_name: 'SkyWalker', email: 'the_force@gmail.com')
-    user_5 = User.create(first_name: 'Eddie', last_name: 'Murphey', email: 'worst_actor@gmail.com')
+    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_12@gmail.com')
+    user_2 = User.create(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy_12@gmail.com')
+    user_3 = User.create(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith_12@gmail.com')
+    user_4 = User.create(first_name: 'Luke', last_name: 'SkyWalker', email: 'the_force_12@gmail.com')
+    user_5 = User.create(first_name: 'Eddie', last_name: 'Murphey', email: 'worst_actor_12@gmail.com')
     recipe_1 = Recipe.create(recipe_api_id: 13)
     user_recipe_1 = UserRecipe.create(user_id: user_1.id, recipe_id: recipe_1.id, vote: 2)
     user_recipe_2 = UserRecipe.create(user_id: user_2.id, recipe_id: recipe_1.id, vote: 1)
@@ -21,11 +21,11 @@ RSpec.describe Recipe, type: :model do
   end
 
   it '#recipe_total_dislikes' do
-    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
-    user_2 = User.create(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy@gmail.com')
-    user_3 = User.create(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith@gmail.com')
-    user_4 = User.create(first_name: 'Luke', last_name: 'SkyWalker', email: 'the_force@gmail.com')
-    user_5 = User.create(first_name: 'Eddie', last_name: 'Murphey', email: 'worst_actor@gmail.com')
+    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_13@gmail.com')
+    user_2 = User.create(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy_13@gmail.com')
+    user_3 = User.create(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith_13@gmail.com')
+    user_4 = User.create(first_name: 'Luke', last_name: 'SkyWalker', email: 'the_force_13@gmail.com')
+    user_5 = User.create(first_name: 'Eddie', last_name: 'Murphey', email: 'worst_actor_13@gmail.com')
     recipe_1 = Recipe.create(recipe_api_id: 13)
     user_recipe_1 = UserRecipe.create(user_id: user_1.id, recipe_id: recipe_1.id, vote: 2)
     user_recipe_2 = UserRecipe.create(user_id: user_2.id, recipe_id: recipe_1.id, vote: 1)

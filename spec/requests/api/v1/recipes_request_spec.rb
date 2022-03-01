@@ -1,11 +1,11 @@
 require 'rails_helper'
 RSpec.describe 'Recipe API' do
   it 'returns one recipe' do
-    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
-    user_2 = User.create(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy@gmail.com')
-    user_3 = User.create(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith@gmail.com')
-    user_4 = User.create(first_name: 'Luke', last_name: 'SkyWalker', email: 'the_force@gmail.com')
-    user_5 = User.create(first_name: 'Eddie', last_name: 'Murphey', email: 'worst_actor@gmail.com')
+    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_1@gmail.com')
+    user_2 = User.create(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy_1@gmail.com')
+    user_3 = User.create(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith_1@gmail.com')
+    user_4 = User.create(first_name: 'Luke', last_name: 'SkyWalker', email: 'the_force_1@gmail.com')
+    user_5 = User.create(first_name: 'Eddie', last_name: 'Murphey', email: 'worst_actor_1@gmail.com')
     recipe_1 = Recipe.create(recipe_api_id: 13)
     user_recipe_1 = UserRecipe.create(user_id: user_1.id, recipe_id: recipe_1.id, vote: 2)
     user_recipe_2 = UserRecipe.create(user_id: user_2.id, recipe_id: recipe_1.id, vote: 1)
@@ -37,12 +37,12 @@ RSpec.describe 'Recipe API' do
   end
 
   it 'creates a recipe when a recipe is not found in the db' do
-    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
+    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_2@gmail.com')
 
     headers = { 'CONTENT_TYPE' => 'application/json' }
       params = {
         "recipe_api_id"=>"52885",
-         "email"=>"chuck@gmail.com",
+         "email"=>"chuck_2@gmail.com",
          "vote"=>"like",
          "controller"=>"api/v1/recipes",
          "action"=>"create",
@@ -68,9 +68,9 @@ RSpec.describe 'Recipe API' do
   end
 
   it 'finds a recipe that already exists' do
-    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
-    user_2 = User.create!(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy@gmail.com')
-    user_3 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith@gmail.com')
+    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_3@gmail.com')
+    user_2 = User.create!(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy_3@gmail.com')
+    user_3 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith_3@gmail.com')
     recipe_1 = Recipe.create!(recipe_api_id: 65)
     user_recipe_1 = UserRecipe.create!(user_id: user_1.id, recipe_id: recipe_1.id, vote: 2)
     user_recipe_5 = UserRecipe.create!(user_id: user_2.id, recipe_id: recipe_1.id, vote: 1)
@@ -78,7 +78,7 @@ RSpec.describe 'Recipe API' do
     headers = { 'CONTENT_TYPE' => 'application/json' }
     params = {
       "recipe_api_id"=>"65",
-       "email"=>"chuck@gmail.com",
+       "email"=>"chuck_3@gmail.com",
        "vote"=>"like",
        "controller"=>"api/v1/recipes",
        "action"=>"create",
@@ -107,9 +107,9 @@ RSpec.describe 'Recipe API' do
   end
 
   it 'adds to like/dislike hash' do
-    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
-    user_2 = User.create!(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy@gmail.com')
-    user_3 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith@gmail.com')
+    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_4@gmail.com')
+    user_2 = User.create!(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy_4@gmail.com')
+    user_3 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith_4@gmail.com')
     recipe_1 = Recipe.create!(recipe_api_id: 65)
     user_recipe_1 = UserRecipe.create!(user_id: user_1.id, recipe_id: recipe_1.id, vote: 2)
     user_recipe_5 = UserRecipe.create!(user_id: user_2.id, recipe_id: recipe_1.id, vote: 2)
@@ -117,7 +117,7 @@ RSpec.describe 'Recipe API' do
     headers = { 'CONTENT_TYPE' => 'application/json' }
     params = {
       "recipe_api_id"=>"65",
-       "email"=>"chuck@gmail.com",
+       "email"=>"chuck_4@gmail.com",
        "vote"=>"dislike",
        "controller"=>"api/v1/recipes",
        "action"=>"create",

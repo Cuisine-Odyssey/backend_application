@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
   end
 
   it '#recipe_total_likes' do
-    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
+    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_8@gmail.com')
     recipe_1 = Recipe.create(recipe_api_id: 13)
     recipe_2 = Recipe.create(recipe_api_id: 21)
     recipe_3 = Recipe.create(recipe_api_id: 33)
@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
   end
 
   it '#recipe_total_dislikes' do
-    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
+    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_9@gmail.com')
     recipe_1 = Recipe.create(recipe_api_id: 13)
     recipe_2 = Recipe.create(recipe_api_id: 21)
     recipe_3 = Recipe.create(recipe_api_id: 33)
@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
   end
 
   it '#cocktail_total_likes' do
-    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
+    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_10@gmail.com')
     cocktail_1 = Cocktail.create(cocktail_api_id: 13)
     cocktail_2 = Cocktail.create(cocktail_api_id: 21)
     cocktail_3 = Cocktail.create(cocktail_api_id: 33)
@@ -62,7 +62,7 @@ RSpec.describe User, type: :model do
   end
 
   it '#cocktail_total_dislikes' do
-    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
+    user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_11@gmail.com')
     cocktail_1 = Cocktail.create(cocktail_api_id: 13)
     cocktail_2 = Cocktail.create(cocktail_api_id: 21)
     cocktail_3 = Cocktail.create(cocktail_api_id: 33)
