@@ -5,7 +5,7 @@ RSpec.describe Cocktail, type: :model do
     it { should have_many(:users).through(:user_cocktails)}
   end
 
-  it '#recipe_total_likes' do
+  it '#cocktail_total_likes' do
     user_1 = User.create(first_name: 'Chuck', last_name: 'Norris', email: 'chuck@gmail.com')
     user_2 = User.create(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy@gmail.com')
     user_3 = User.create(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith@gmail.com')
