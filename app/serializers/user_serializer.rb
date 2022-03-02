@@ -3,11 +3,19 @@ class UserSerializer
   attributes :first_name, :last_name, :email
 
 
-  attribute :likes do |object|
-    object.total_likes
+  attribute :recipe_likes do |object|
+    object.recipe_total_likes
   end
 
-  attribute :dislikes do |object|
-    object.total_dislikes
+  attribute :recipe_dislikes do |object|
+    object.recipe_total_dislikes
+  end
+
+  attribute :cocktail_likes do |object|
+    object.cocktail_total_likes
+  end
+
+  attribute :cocktail_dislikes do |object|
+    object.cocktail_total_dislikes
   end
 end

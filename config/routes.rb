@@ -5,8 +5,10 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :create]
       resources :recipes, only: [:show]
       post '/users/create', to: 'users#create'
+      post '/recipes/like', to: 'recipes#create'
+      post '/recipes/dislike', to: 'recipes#create'
+      post '/cocktails/like', to: 'cocktails#create'
+      post '/cocktails/dislike', to: 'cocktails#create'
     end
   end
-
-
 end
