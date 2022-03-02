@@ -1,7 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
   def show
-    user = User.find_by[params[:email]]
+    user = User.find_by(email: params[:email])
     if user.present?
       render json: UserSerializer.new(user)
     else
