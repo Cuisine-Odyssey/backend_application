@@ -1,8 +1,9 @@
 class Api::V1::UsersController < ApplicationController
 
   def show
-    if User.exists?(params[:id])
-      render json: UserSerializer.new(User.find(params[:id]))
+    user = User.find_by[params[:email]]
+    if user.present?
+      render json: UserSerializer.new(user)
     else
       render status: 404
     end

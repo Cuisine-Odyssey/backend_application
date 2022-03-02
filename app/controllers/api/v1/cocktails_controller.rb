@@ -13,11 +13,4 @@ class Api::V1::CocktailsController < ApplicationController
       render status: 404
     end
   end
-
-  # private
-
-  # def cocktail_params
-  #   params.require(:cocktail).permit(:cocktail_api_id)
-  # end
-
 end
