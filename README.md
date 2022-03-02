@@ -1,6 +1,6 @@
 # Cuisine Odyssey Backend Application
 
-![languages](https://img.shields.io/github/languages/top/cuisine-odyssey/backend_application?color=red)
+![languages](https://img.shields.io/github/languages/top/Cuisine-Odyssey/backend_application?color=red)
 ![PRs](https://img.shields.io/github/issues-pr-closed/cuisine-odyssey/backend_application)
 ![rspec](https://img.shields.io/gem/v/rspec?color=blue&label=rspec)
 ![simplecov](https://img.shields.io/gem/v/simplecov?color=blue&label=simplecov) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
@@ -60,21 +60,21 @@ On your local machine open a terminal session and enter the following commands f
 
 - using ssh key <br>
 ```shell
-$ git clone git@github.com:Cuisine-Odyssey/frontend_application.git
+$ git clone git@github.com:Cuisine-Odyssey/backend_application.git
 ```
 
 - using https <br>
 ```shell
-$ git clone https://github.com/Cuisine-Odyssey/frontend_application
+$ git clone https://github.com/Cuisine-Odyssey/backend_application
 ```
 
 Once cloned, you'll have a new local copy in the directory you ran the clone command in.
 
 2. Change to the project directory:<br>
-In terminal, use `$cd` to navigate to the Frontend Application project directory.
+In terminal, use `$cd` to navigate to the backend Application project directory.
 
 ```shell
-$ cd frontend_application
+$ cd backend_application
 ```
 
 3. Install required Gems utilizing Bundler: <br>
