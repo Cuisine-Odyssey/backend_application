@@ -21,7 +21,7 @@
 - Build APIs that return JSON responses 
 - Use an external OAuth provider to authenticate users 
 - Refactor code for better code organization/readability 
-- Create a project with a separate frontend and backend 
+- Create an application with mircroservices for a smealess, separate frontend view and backend database. 
 - Implement a production-quality user interface using Bootstrap
 - Practice good project management by using project boards, participating in daily stand-ups and team retros 
 - Utilize quality workflow practices: small commits, descriptive pull requests, and code reviews 
@@ -175,7 +175,7 @@ $ rails db: {:drop, :create, :migrate, :seed}
 ```
 
 
-6. Startup and Access<br>
+5. Startup and Access<br>
 Finally, in order to use the web app you will have to start the server locally and access the app through a web browser. 
 - Start server
 ```shell
