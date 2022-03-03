@@ -1,27 +1,33 @@
-# README
 # Cuisine Odyssey Backend Application
 
-![languages](https://img.shields.io/github/languages/top/dylan-harper/cuisine_odyssey_frontend?color=red)
-![PRs](https://img.shields.io/github/issues-pr-closed/dylan-harper/cuisine_odyssey_frontend)
+![languages](https://img.shields.io/github/languages/top/Cuisine-Odyssey/backend_application?color=red)
+![PRs](https://img.shields.io/github/issues-pr-closed/cuisine-odyssey/backend_application)
 ![rspec](https://img.shields.io/gem/v/rspec?color=blue&label=rspec)
 ![simplecov](https://img.shields.io/gem/v/simplecov?color=blue&label=simplecov) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/contributors-1-orange.svg?style=flat)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/contributors-6-orange.svg?style=flat)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 
 ## Background and Description
 
-"Cuisine Odyssey" is a group project! ADDD LATER 
+"Cuisine Odyssey" is a group project inspired by the dilemma of not knowing what to cook for dinner. The app's interface allows the user to spin a globe or a bottle, depending on if they are looking for recipes or cocktails. When the user clicks to spin, a random region is selected and up to 5 recipes are generated. The user can choose to spin again, to save the recipe to their dashboard using a "like" feature, or dislike the recipes. This portion of the project encapsulates the back end of the application and provides API endpoints for the functionality of the user interface on the front end.
+
+[Frontend Application](https://github.com/Cuisine-Odyssey/frontend_application) 
 
 ## Learning Goals
 
-- Practice building API endpoints to expose limited data.
-- Utilize advanced routing techniques including namespacing to organize and group like functionality together.
-- Utilize advanced active record techniques to perform complex database queries
-- Practice serializing to protect and format data in a conventional format.
+- Consume two or more external APIs 
+- Implement Circle CI for continuous integration/testing
+- Build APIs that return JSON responses 
+- Use an external OAuth provider to authenticate users 
+- Refactor code for better code organization/readability 
+- Create an application with mircroservices for a smealess, separate frontend view and backend database. 
+- Implement a production-quality user interface using Bootstrap
+- Practice good project management by using project boards, participating in daily stand-ups and team retros 
+- Utilize quality workflow practices: small commits, descriptive pull requests, and code reviews 
+- Write thorough, understandable documentation
 
-## Schema
-- See image below for project database schema:
-<img width="1010" alt="Schema" src="https://user-images.githubusercontent.com/90228086/155447404-34bdf2a0-2497-4612-831e-c803823f47fb.png">
+
 
 ## Requirements and Setup (for Mac):
 
@@ -34,10 +40,18 @@
 - Pry
 - SimpleCov
 - Capybara
-- Shoulda-Matchers v5.0
+- Shoulda-Matchers 
 - Factory_Bot_Rails
 - Faker
-- jsonapi-serializer
+- jsonapi-serialize
+- omniauth-google-oauth2
+- Figaro
+- Webmock
+- VCR
+- jquery-rails
+- rspec_junit_formatter
+- Orderly
+- dotenv-rails
 
 ## Setup
 1. Clone this repository:
@@ -46,21 +60,21 @@ On your local machine open a terminal session and enter the following commands f
 
 - using ssh key <br>
 ```shell
-$ git clone git@github.com:sethperna/rails-engine-lite.git
+$ git clone git@github.com:Cuisine-Odyssey/backend_application.git
 ```
 
 - using https <br>
 ```shell
-$ git clone https://github.com/sethperna/rails-engine-lite.git
+$ git clone https://github.com/Cuisine-Odyssey/backend_application
 ```
 
 Once cloned, you'll have a new local copy in the directory you ran the clone command in.
 
 2. Change to the project directory:<br>
-In terminal, use `$cd` to navigate to the Little Esty Shop project directory.
+In terminal, use `$cd` to navigate to the backend Application project directory.
 
 ```shell
-$ cd rails-engine-lite
+$ cd backend_application
 ```
 
 3. Install required Gems utilizing Bundler: <br>
@@ -150,9 +164,7 @@ Using simplecov_json_formatter 0.1.3
 Using simplecov 0.21.2
 Using spring 2.1.1
 Using spring-watcher-listen 2.0.1
-Bundle complete! 16 Gemfile dependencies, 70 gems now installed.
-Use `bundle info [gemname]` to see where a bundled gem is installed.
-```
+
 If there are any errors, verify that bundler, Rails, and your ruby environment are correctly setup.
 
 4. Database Migration<br>
@@ -162,14 +174,8 @@ Before using the web application you will need to setup your databases locally b
 $ rails db: {:drop, :create, :migrate, :seed}
 ```
 
-5. Pg Dump Load
-Next we will seed environment with generic data by using CSV files by running the following command
 
-```shell
-$ rails db:schema:dump
-```
-
-6. Startup and Access<br>
+5. Startup and Access<br>
 Finally, in order to use the web app you will have to start the server locally and access the app through a web browser. 
 - Start server
 ```shell
@@ -177,10 +183,9 @@ $ rails s
 ```
 
 - Open web browser and visit link
-    http://localhost:3000/
+    http://localhost:3000/api/v1/users/1
     
-At this point you should be taken to the welcome page of the web-app. If you encounter any errors or have not reached the web-app please confirm you followed the steps above and that your environment is properly set up.
-
+At this point you should be taken to a page with an example JSON response for a user
 
 
 ## **Contributors** ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -190,8 +195,19 @@ At this point you should be taken to the welcome page of the web-app. If you enc
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/sethperna"><img src="https://avatars.githubusercontent.com/u/90224504?s=400&u=b0c82b444d7708000e2747f860d4d2c3efb616cc&v=4" width="100px;" alt=""/><br /><sub><b>Seth (he/him)</b></sub></a><br /><a href="https://github.com/sethperna/rails-engine-lite/commits?author=sethperna" title="Code">💻</a> <a href="#ideas-sethperna" title="Ideas, Planning, & Feedback">�</a> <a href="https://github.com/sethperna/rails-engine-lite/commits?author=sethperna" title="Tests">⚠️</a> <a href="https://github.com/sethperna/rails-engine-lite/pulls?q=is%3Apr+reviewed-by%3sethperna" title="Reviewed Pull Requests">👀</a></td>
-
+    <td align="center"><a href="https://github.com/sethperna"><img src="https://avatars.githubusercontent.com/u/90224504?v=4" width="100px;" alt=""/><br /><sub><b>Seth (he/him)</b></sub></a><br /><a href="https://github.com/cuisine-odyssey/backend_application/commits?author=sethperna" title="Code">💻</a> <a href="https://github.com/Cuisine-Odyssey/backend_application/pulls?q=is%3Apr+author%3ASethPerna" title="Reviewed Pull Requests">👀</a>
+     </td>
+       <td align="center"><a href="https://github.com/kanderson852"><img src="https://avatars.githubusercontent.com/u/89998621?v=4" width="100px;" alt=""/><br /><sub><b>Kelly(she/her)</b></sub></a><br /><a href="https://github.com/cuisine-odyssey/backend_application/commits?author=kanderson852" title="Code">💻</a> <a href="https://github.com/Cuisine-Odyssey/backend_application/pulls?q=is%3Apr+author%3Akanderson852" title="Reviewed Pull Requests">👀</a>
+     </td>
+      <td align="center"><a href="https://github.com/dylan-harper"><img src="https://avatars.githubusercontent.com/u/39470230?v=4" width="100px;" alt=""/><br /><sub><b>Dylan(he/him)</b></sub></a><br /><a href="https://github.com/cuisine-odyssey/backend_application/commits?author=dylan-harper" title="Code">💻</a> <a href="https://github.com/Cuisine-Odyssey/backend_application/pulls?q=is%3Apr+author%3Adylan-harper" title="Reviewed Pull Requests">👀</a>
+     </td>
+      <td align="center"><a href="https://github.com/WadeNaughton"><img src="https://avatars.githubusercontent.com/u/90228086?v=4" width="100px;" alt=""/><br /><sub><b>Wade(he/him)</b></sub></a><br /><a href="https://github.com/cuisine-odyssey/backend_application/commits?author=WadeNaughton" title="Code">💻</a> <a href="https://github.com/Cuisine-Odyssey/backend_application/pulls?q=is%3Apr+author%3AWadeNaughton" title="Reviewed Pull Requests">👀</a>
+     </td>
+      <td align="center"><a href="https://github.com/hannahkwarren"><img src="https://avatars.githubusercontent.com/u/17674781?v=4" width="100px;" alt=""/><br /><sub><b>Hannah(she/her)</b></sub></a><br /><a href="https://github.com/cuisine-odyssey/backend_application/commits?author=hannahkwarren" title="Code">💻</a> <a href="https://github.com/Cuisine-Odyssey/backend_application/pulls?q=is%3Apr+author%3Ahannahkwarren" title="Reviewed Pull Requests">👀</a>
+     </td>
+      <td align="center"><a href="https://github.com/dkassin"><img src="https://avatars.githubusercontent.com/u/76177498?v=4" width="100px;" alt=""/><br /><sub><b>David(he/him)</b></sub></a><br /><a href="https://github.com/cuisine-odyssey/backend_application/commits?author=dkassin" title="Code">💻</a> <a href="https://github.com/Cuisine-Odyssey/backend_application/pulls?q=is%3Apr+author%3Adkassin" title="Reviewed Pull Requests">👀</a>
+     </td>
+    </tr>
 </table>
 
 <!-- markdownlint-restore -->
@@ -201,3 +217,4 @@ At this point you should be taken to the welcome page of the web-app. If you enc
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.
 <!--
+

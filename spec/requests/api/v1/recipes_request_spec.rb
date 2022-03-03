@@ -40,16 +40,16 @@ RSpec.describe 'Recipe API' do
     user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_2@gmail.com')
 
     headers = { 'CONTENT_TYPE' => 'application/json' }
-      params = {
-        "recipe_api_id"=>"52885",
-         "email"=>"chuck_2@gmail.com",
-         "vote"=>"like",
-         "controller"=>"api/v1/recipes",
-         "action"=>"create",
-         "recipe"=>{
-           "recipe_api_id"=>"52885"
-           }
+    params = {
+      "recipe_api_id"=>"52885",
+       "email"=>"chuck_2@gmail.com",
+       "vote"=>"like",
+       "controller"=>"api/v1/recipes",
+       "action"=>"create",
+       "recipe"=>{
+         "recipe_api_id"=>"52885"
          }
+       }
 
     post "/api/v1/recipes/like", headers: headers, params: JSON.generate(params)
     recipe_json = JSON.parse(response.body, symbolize_names: true)

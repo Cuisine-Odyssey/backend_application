@@ -20,13 +20,5 @@ class Api::V1::RecipesController < ApplicationController
     else
       render status: 404
     end
-
   end
-
-  # private
-
-  # def recipe_params
-  #   params.require(:recipe).permit(:recipe_api_id)
-  # end
-
 end

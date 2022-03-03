@@ -1,10 +1,12 @@
 require 'rails_helper'
 RSpec.describe 'Users API' do
   it 'returns one user' do
-    user = create(:user)
+    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_20@gmail.com')
 
-    get "/api/v1/users/#{user.id}"
+    headers = { 'CONTENT_TYPE' => 'application/json' }
+    params = {"email"=>"chuck_20@gmail.com", "controller"=>"api/v1/users", "action"=>"show"}
 
+    get "/api/v1/users", headers: headers, params: params
     user = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_successful
