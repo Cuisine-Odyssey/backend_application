@@ -194,6 +194,21 @@ $ rails s
     
 At this point you should be taken to a page with an example JSON response for a user
 
+## Endpoints provided 
+/users, to users#show
+/recipes/like, to recipes#create
+/recipes/dislike, to recipes#create
+'/cocktails/like' to cocktails#create
+'/cocktails/dislike', to cocktails#create
+
+example request/response for GET /API/V1/USERS/1
+![Screen Shot 2022-02-24 at 7 05 35 PM](https://user-images.githubusercontent.com/89998621/156661614-e9322ba1-0965-4cb7-bf69-905f271ff1b3.png)
+
+example for a recipe request: 
+![Screen Shot 2022-02-25 at 9 47 24 AM](https://user-images.githubusercontent.com/89998621/156661731-0d7eacca-b013-4e2f-afa5-9d6d4ed00606.png)
+
+Cocktail endpoints are the same as recipe endpoints but give details about drink recipes rather than food items.
+
 
 ## **Contributors** ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
