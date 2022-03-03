@@ -37,6 +37,17 @@ RSpec.describe 'Users API' do
     expect(expected[:cocktail_dislikes]).to be_a Array
   end
 
+  it 'returns one 404 if invalid params are provided' do
+    user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_20@gmail.com')
+
+    headers = { 'CONTENT_TYPE' => 'application/json' }
+    params = {"email"=>"chuck_20gmail.com", "controller"=>"api/v1/users", "action"=>"show"}
+
+    get "/api/v1/users", headers: headers, params: params
+
+    expect(response.status).to eq(404)
+  end
+
   it 'creates or finds a user' do
     headers = { 'CONTENT_TYPE' => 'application/json' }
       params = {
