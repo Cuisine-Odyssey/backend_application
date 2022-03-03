@@ -17,6 +17,7 @@
 [Frontend Application](https://github.com/Cuisine-Odyssey/frontend_application)
 
 ## Schema 
+
 ![Screen Shot 2022-02-23 at 6 47 13 PM](https://user-images.githubusercontent.com/89998621/156648383-05beb0d5-a05b-43ed-ad63-3712d82fd04c.png)
 
 ![Screen Shot 2022-03-03 at 11 16 17 AM](https://user-images.githubusercontent.com/39470230/156636664-360d9a85-74a8-482e-a82f-9c5bf3a54c35.png)
@@ -195,16 +196,23 @@ $ rails s
 At this point you should be taken to a page with an example JSON response for a user
 
 ## Endpoints provided 
+
 /users, to users#show
+
 /recipes/like, to recipes#create
+
 /recipes/dislike, to recipes#create
+
 '/cocktails/like' to cocktails#create
+
 '/cocktails/dislike', to cocktails#create
 
 example request/response for GET /API/V1/USERS/1
+
 ![Screen Shot 2022-02-24 at 7 05 35 PM](https://user-images.githubusercontent.com/89998621/156661614-e9322ba1-0965-4cb7-bf69-905f271ff1b3.png)
 
 example for a recipe request: 
+
 ![Screen Shot 2022-02-25 at 9 47 24 AM](https://user-images.githubusercontent.com/89998621/156661731-0d7eacca-b013-4e2f-afa5-9d6d4ed00606.png)
 
 Cocktail endpoints are the same as recipe endpoints but give details about drink recipes rather than food items.
