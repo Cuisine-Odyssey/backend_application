@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:show, :create]
       resources :recipes, only: [:show]
+      get '/users', to: 'users#show'
       post '/users/create', to: 'users#create'
       post '/recipes/like', to: 'recipes#create'
       post '/recipes/dislike', to: 'recipes#create'
