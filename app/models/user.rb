@@ -11,7 +11,7 @@ class User < ApplicationRecord
             :uniqueness => true
 
   def recipe_total_likes
-    recipes.where(user_recipes: {vote: 1}).pluck(:recipe_api_id)
+    recipes.where(user_recipes: {vote: 1}).pluck(:recipe_api_id)#.order(created_by: :desc).limit(5)
   end
 
   def recipe_total_dislikes

@@ -74,7 +74,7 @@ RSpec.describe 'Recipe API' do
     recipe_1 = Recipe.create!(recipe_api_id: 65)
     user_recipe_1 = UserRecipe.create!(user_id: user_1.id, recipe_id: recipe_1.id, vote: 2)
     user_recipe_5 = UserRecipe.create!(user_id: user_2.id, recipe_id: recipe_1.id, vote: 1)
-    user_recipe_6 = UserRecipe.create!(user_id: user_3.id, recipe_id: recipe_1.id, vote: 1)
+    user_recipe_6 = UserRecipe.create!(user_id: user_3.id, recipe_id: recipe_1.id, vote: 2)
     headers = { 'CONTENT_TYPE' => 'application/json' }
     params = {
       "recipe_api_id"=>"65",
@@ -100,7 +100,7 @@ RSpec.describe 'Recipe API' do
     expect(expected[:recipe_api_id]).to eq(recipe_1.recipe_api_id)
     expect(expected).to have_key(:sum_likes)
     expect(expected[:sum_likes]).to be_a Integer
-    expect(expected[:sum_likes]).to eq(3) # created new user_recipe record to get 3 likes
+    expect(expected[:sum_likes]).to eq(2) # created new user_recipe record to get 3 likes
     expect(expected).to have_key(:sum_dislikes)
     expect(expected[:sum_dislikes]).to be_a Integer
     expect(expected[:sum_dislikes]).to eq(1)
@@ -110,15 +110,44 @@ RSpec.describe 'Recipe API' do
     user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_4@gmail.com')
     user_2 = User.create!(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy_4@gmail.com')
     user_3 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith_4@gmail.com')
-    recipe_1 = Recipe.create!(recipe_api_id: 65)
-    user_recipe_1 = UserRecipe.create!(user_id: user_1.id, recipe_id: recipe_1.id, vote: 2)
-    user_recipe_5 = UserRecipe.create!(user_id: user_2.id, recipe_id: recipe_1.id, vote: 2)
-    user_recipe_6 = UserRecipe.create!(user_id: user_3.id, recipe_id: recipe_1.id, vote: 1)
+    user_4 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith_4000@gmail.com')
+    recipe_1000 = Recipe.create!(recipe_api_id: 65)
+    user_recipe_1 = UserRecipe.create!(user_id: user_1.id, recipe_id: recipe_1000.id, vote: 2)
+    user_recipe_5 = UserRecipe.create!(user_id: user_2.id, recipe_id: recipe_1000.id, vote: 2)
+    user_recipe_6 = UserRecipe.create!(user_id: user_3.id, recipe_id: recipe_1000.id, vote: 1)
+    headers = { 'CONTENT_TYPE' => 'application/json' }
+    params = {
+      "recipe_api_id"=>"65",
+       "email"=>"the_real_chad_smith_4000@gmail.com",
+       "vote"=>"dislike",
+       "controller"=>"api/v1/recipes",
+       "action"=>"create",
+       "recipe"=>{
+         "recipe_api_id"=>"52885"
+         }
+       }
+
+    post "/api/v1/recipes/dislike", headers: headers, params: JSON.generate(params)
+    recipe_json = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+    expected = recipe_json[:data][:attributes]
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+    expect(expected).to have_key(:recipe_api_id)
+    expect(expected[:recipe_api_id]).to be_a Integer
+    expect(expected[:recipe_api_id]).to eq(recipe_1000.recipe_api_id)
+    expect(expected).to have_key(:sum_likes)
+    expect(expected[:sum_likes]).to be_a Integer
+    expect(expected[:sum_likes]).to eq(1)
+    expect(expected[:sum_dislikes]).to be_a Integer
+    expect(expected[:sum_dislikes]).to eq(3)
     headers = { 'CONTENT_TYPE' => 'application/json' }
     params = {
       "recipe_api_id"=>"65",
        "email"=>"chuck_4@gmail.com",
-       "vote"=>"dislike",
+       "vote"=>"like",
        "controller"=>"api/v1/recipes",
        "action"=>"create",
        "recipe"=>{
@@ -136,10 +165,10 @@ RSpec.describe 'Recipe API' do
     expect(response.status).to eq(200)
     expect(expected).to have_key(:recipe_api_id)
     expect(expected[:recipe_api_id]).to be_a Integer
-    expect(expected[:recipe_api_id]).to eq(recipe_1.recipe_api_id)
+    expect(expected[:recipe_api_id]).to eq(recipe_1000.recipe_api_id)
     expect(expected).to have_key(:sum_likes)
     expect(expected[:sum_likes]).to be_a Integer
-    expect(expected[:sum_likes]).to eq(1)
+    expect(expected[:sum_likes]).to eq(2)
     expect(expected[:sum_dislikes]).to be_a Integer
     expect(expected[:sum_dislikes]).to eq(2)
   end
