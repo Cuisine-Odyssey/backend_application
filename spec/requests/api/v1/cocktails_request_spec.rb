@@ -37,6 +37,7 @@ RSpec.describe 'cocktails api' do
     user_1 = User.create!(first_name: 'Chuck', last_name: 'Norris', email: 'chuck_6@gmail.com')
     user_2 = User.create!(first_name: 'Samuel', last_name: 'Jackson', email: 'SammyBoy_6@gmail.com')
     user_3 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith_6@gmail.com')
+    user_4 = User.create!(first_name: 'Will', last_name: 'Ferrel', email: 'the_real_chad_smith_6000@gmail.com')
     cocktail_1 = Cocktail.create!(cocktail_api_id: 65)
     user_cocktail_1 = UserCocktail.create!(user_id: user_1.id, cocktail_id: cocktail_1.id, vote: 2)
     user_cocktail_5 = UserCocktail.create!(user_id: user_2.id, cocktail_id: cocktail_1.id, vote: 1)
@@ -44,7 +45,7 @@ RSpec.describe 'cocktails api' do
     headers = { 'CONTENT_TYPE' => 'application/json' }
     params = {
       "cocktail_api_id"=>"65",
-       "email"=>"chuck_6@gmail.com",
+       "email"=>"the_real_chad_smith_6000@gmail.com",
        "vote"=>"like",
        "controller"=>"api/v1/cocktails",
        "action"=>"create",
@@ -66,7 +67,7 @@ RSpec.describe 'cocktails api' do
     expect(expected[:cocktail_api_id]).to eq(cocktail_1.cocktail_api_id)
     expect(expected).to have_key(:sum_likes)
     expect(expected[:sum_likes]).to be_a Integer
-    expect(expected[:sum_likes]).to eq(3) # created new user_cocktail record to get 3 likes
+    expect(expected[:sum_likes]).to eq(3)
     expect(expected).to have_key(:sum_dislikes)
     expect(expected[:sum_dislikes]).to be_a Integer
     expect(expected[:sum_dislikes]).to eq(1)
