@@ -17,7 +17,7 @@
 [Frontend Application](https://github.com/Cuisine-Odyssey/frontend_application)
 
 ##Schema 
-[db schema](https://turingschool.slack.com/files/U02CRMP1WES/F0353QTT1RN/screen_shot_2022-02-23_at_6.47.13_pm.png)
+![Screen Shot 2022-02-23 at 6 47 13 PM](https://user-images.githubusercontent.com/89998621/156648383-05beb0d5-a05b-43ed-ad63-3712d82fd04c.png)
 
 ![Screen Shot 2022-03-03 at 11 16 17 AM](https://user-images.githubusercontent.com/39470230/156636664-360d9a85-74a8-482e-a82f-9c5bf3a54c35.png)
 
