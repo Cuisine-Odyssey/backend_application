@@ -12,10 +12,10 @@ class Api::V1::RecipesController < ApplicationController
     new_recipe = Recipe.find_or_create_by(recipe_api_id: params[:recipe_api_id])
     user = User.find_by(email: params[:email])
     if new_recipe.present? && params[:vote] == 'like'
-      UserRecipe.create(user_id: user.id, recipe_id: new_recipe.id, vote: 1)
+      UserRecipe.find_or_create_by(user_id: user.id, recipe_id: new_recipe.id, vote: 1)
       render json: RecipeSerializer.new(new_recipe)
     elsif new_recipe.present? && params[:vote] == 'dislike'
-      UserRecipe.create(user_id: user.id, recipe_id: new_recipe.id, vote: 2)
+      UserRecipe.find_or_create_by(user_id: user.id, recipe_id: new_recipe.id, vote: 2)
       render json: RecipeSerializer.new(new_recipe)
     else
       render status: 404

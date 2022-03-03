@@ -107,6 +107,6 @@ RSpec.describe 'cocktails api' do
     expect(expected[:sum_likes]).to be_a Integer
     expect(expected[:sum_likes]).to eq(1)
     expect(expected[:sum_dislikes]).to be_a Integer
-    expect(expected[:sum_dislikes]).to eq(3)
+    expect(expected[:sum_dislikes]).to eq(2)
   end
 end
